@@ -1,0 +1,38 @@
+.mobile, .phablet, .tablet, .laptop, .desktop, .hd { display: none!important; }
+.only-mobile, .only-phablet, .only-tablet, .only-laptop, .only-desktop, .only-hd { display: none!important; }
+
+@media (max-width: 400px) {
+	.mobile { display: block!important; }
+	.only-mobile { display: block!important; }
+}
+
+@media (min-width: 401px and max-width: 550px) {
+	.mobile, .phablet { display: block!important; }
+	.only-phablet { display: block!important; }
+}
+
+/* Larger than phablet */
+@media (min-width: 551px and max-width: 750px) {
+	.mobile, .phablet, .tablet { display: block!important; }
+	.only-tablet { display: block!important; }
+}
+
+/* Larger than tablet */
+@media (min-width: 751px and max-width: 1000px) {
+	.mobile, .phablet, .tablet, .laptop { display: block!important; }
+	.only-laptop { display: block!important; }
+}
+
+/* Larger than desktop */
+@media (min-width: 1001px and max-width: 1200px) {
+	.mobile, .phablet, .tablet, .laptop, .desktop { display: block!important; }
+	.only-desktop { display: block!important; }
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1201px) {
+	.mobile, .phablet, .tablet, .laptop, .desktop, .hd { display: block!important; }
+	.only-hd { display: block!important; }
+}
+
+

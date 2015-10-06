@@ -1,0 +1,413 @@
+body {
+	-webkit-overflow-scrolling: touch;
+}
+
+#logo, #slider {
+    position: relative;
+    height: 160px;
+    float: left;
+}
+
+
+#topbar {
+	position: fixed;
+	width: 100%;
+	background: #eff4ff;
+	border-bottom: 1px solid #f4b836;
+	/*box-shadow: 0px 5px 1px 1px #f4b836;*/
+	z-index: 9000;
+}
+
+
+
+#logo {
+	width: 25%;
+	line-height: 120px;
+	text-align: center;
+}
+
+	#logo:after {
+		content: '';
+		line-height: 0;
+		font-size: 0;
+		width: 0;
+		height: 0;
+		border-top: 50px solid transparent;
+		border-bottom: 160px solid #f4b836;
+		border-left: 40px solid transparent;
+		border-right: 0 solid #f4b836;
+		position: absolute;
+		top: -50px;
+		right: 0;
+	}
+
+	#banner {
+		position: absolute;
+		display: block;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		line-height: 1;
+		height: 100px;
+	}
+
+#slider {
+    background: #000 url('http://lorempixel.com/800/200');
+	background-size: 100% auto;
+    width: 75%;
+}
+
+	#slider:before {
+		content: '';
+		line-height: 0;
+		font-size: 0;
+		width: 0;
+		height: 0;
+		border-top: 160px solid #f4b836;
+		border-bottom: 50px solid transparent;
+		border-left: 0px solid transparent;
+		border-right: 40px solid transparent;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 10000;
+	}
+	
+	#slider:after {
+		content: '';
+		line-height: 0;
+		font-size: 0;
+		width: 0;
+		height: 0;
+		border-top: 50px solid transparent;
+		border-bottom: 160px solid #eff4ff;
+		border-left: 40px solid transparent;
+		border-right: 0 solid #eff4ff;
+		position: absolute;
+		top: -50px;
+		right: 0;
+	}
+
+	#slider h4 {
+		background: rgba(128, 128, 128, 0.5);
+		padding: 5px 10px 5px 50px;
+		position: absolute;
+		bottom: 10px;
+		color: #f1f1f1;
+	}
+
+	.menu {
+		width: 300px;
+		height: 100vh;
+		position: fixed;
+		background-color: #d8980f;
+		transition: all 1s;
+		left: 0;
+		z-index: 10000;
+		overflow-y: auto;
+		padding-bottom: 100px;
+		box-sizing: border-box;
+	}
+
+	.menu.closed { 
+		left: -300px; 
+	}
+
+	#toggle #menutip {
+		display: none;
+		transition: display 5s;
+	}
+	
+	#toggle.closed #menutip {
+		display: block;
+		font-size: 30px;
+		background-color: #f1f1f1;
+		bottom: 20vh;
+		position: absolute;
+		width: 100vw;
+		color: #1f1f1f;
+	}
+
+	#toggle.closed i {
+		display: none;
+	}
+
+	#toggle {
+		background-color: #d8980f;
+		height: 50px;
+		width: 50px;
+		line-height: 50px;
+		text-align: center;
+		box-sizing: border-box;
+		padding: 5px;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 10000;
+		transition: all .7s ease;
+		color: #f1f1f1;
+		overflow: hidden;
+		animation: glow 2.5s linear infinite;
+		
+	}
+
+	#toggle:hover { 
+		cursor: pointer; 
+		background: #a97503;
+	}
+
+	#toggle.closed {
+		left: 0px;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: 100vh;
+		background: rgba(216, 152, 15, 0.3);
+		animation: none;
+	}
+
+	.content {
+		width: 100vw;
+		height: 100vh;
+		margin-left: 0px;
+		transition: all .4s;
+	}
+
+	.content.closed .text {
+		transform: translateX(80px);
+	}
+
+	.menu ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 15px 0 0 40px;
+		padding-right: 40px;
+	}
+
+	.menu ul li a {
+		color: #f1f1f1;
+		font-size: 20px;
+		margin: 0 0 5px 0;
+		height: 40px;
+		line-height: 40px;
+		transition: all .3s;
+		text-decoration: none;
+		display: inline-block;
+		border-bottom: 3px solid transparent;       
+		width: 0px;
+		transition: 0.5s ease;
+		white-space: nowrap;
+	}
+    
+    
+	.menu ul li a:hover {
+		cursor: pointer;
+		border-bottom: 3px solid #a97503;
+		width: 100%;
+	}
+	
+	.menu ul li a i {
+		margin-right: 10px;
+	}
+	
+	.menu ul li span {
+		display: none; 
+		padding: 0 0 0 10px;
+		font-size: 13px;
+		color: lightgrey;
+		animation: fadein 1s;
+	}
+	
+	.menu ul li:hover > span {
+		display: block;
+		opacity: 1.0;
+	}
+
+
+	@keyframes fadein {
+		from { opacity: 0; }
+		to   { opacity: 1; }
+	}
+
+
+	.menu p {
+		margin-top: 50px;
+		text-align: center;
+		color: #f1f1f1;
+		font-size: 12px;
+	}
+	
+	.menu #userbar {
+		margin: 20px 40px 0 25px;
+	}
+	
+		.menu #userbar #avatar {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			float: left;
+			text-align: center;
+			line-height: 60px;
+			color: #f1f1f1;
+		}
+		
+			.menu #userbar #avatar i {
+				display: none;
+				opacity: 0.2;
+				animation: fadein 1s;
+			}
+			
+			.menu #userbar #avatar:hover > i {
+				display: inline;
+				opacity: 1;
+			}
+		
+		.menu #userbar #username {
+			display: inline-block;
+			height: 50px;
+			line-height: 50px;
+			margin-left: 10px;
+		}
+		
+	@keyframes glow { 
+		0% {
+			background: #d8980f;
+		}
+		50% { 
+			background: #f0b639;
+		} 
+		100% {
+			background: #d8980f;
+		}
+	}
+	
+	#login {
+		padding: 20px 40px;
+	}
+	
+		#login input {
+			width: 100%;
+		}
+		
+	.article_text {
+		overflow-y: scroll;
+		height: 80%;
+		width: 100%;
+		word-wrap: break-word;
+	}
+	
+	.comment.self .forum.post {
+		position: relative;
+	}
+	
+	.comment.self .forum.post .commentbox {
+		background: #ffcc5c;
+		padding: 10px;
+		float: right;
+		border-radius: 5px 0 5px 5px; 
+		position: relative;
+		margin-right: 20px;
+	}
+	
+	.comment.self .forum.post .commentbox:after {
+		content: ' ';
+		width: 0;
+		height: 0;
+		border-top: 15px solid #ffcc5c;
+		border-right: 15px solid transparent;
+		position: absolute;
+		right: -15px;
+		top: 0;
+	}
+	
+	.comment.otheruser .forum.post {
+		position: relative;
+	}
+	
+	.forum.post .commentbox {
+		max-width: 75%;
+	}
+	
+	.comment.otheruser .forum.post .commentbox {
+		background: #ffcc5c;
+		padding: 10px;
+		float: left;
+		border-radius: 0 5px 5px 5px;
+		position: relative;
+		margin-left: 20px;
+	}
+	
+	.comment.otheruser .forum.post .commentbox:before {
+		content: ' ';
+		width: 0;
+		height: 0;
+		border-top: 15px solid #ffcc5c;
+		border-left: 15px solid transparent;
+		position: absolute;
+		left: -15px;
+		top: 0;
+	}
+	
+	.comment .avatar {
+		display: inline-block;
+		text-align: center;
+	}
+	
+	.comment.otheruser .avatar {
+		float: left;
+	}
+	
+	.comment.self .avatar {
+		float: right;
+		border-radius: 0 50% 50%;
+	}
+	
+	.comment.otheruser .avatar img {
+		border-radius: 50% 0 50% 50%;
+	}
+	
+	.comment.self .avatar img {
+		border-radius: 0 50% 50%;
+	}
+	
+	.comment .avatar img {
+		width: 65px;
+		height: 65px;
+		display: block;
+	}
+	
+	.comment {
+		margin-bottom: 20px;
+	}
+	
+	.commentbox p {
+		margin-bottom: 0;
+		transition: 2s;
+		max-height: auto;
+	}
+	
+	.commentbox.trimmed > p {
+		max-height: 100px; 
+		overflow: hidden
+	}
+	
+	.commentbox.trimmed > .readmore {
+		display: block;
+	}
+	
+	.readmore {
+		display: none;
+		position: absolute; 
+		bottom: 0; 
+		left: 0;
+		width: 100%; 
+		text-align: center; 
+		margin: 0; 
+		padding: 30px 0 0 0; 
+		background-image: linear-gradient(to bottom, transparent, lightgrey);
+		border-radius: 0 0 5px 5px;
+	}

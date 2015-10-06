@@ -1,0 +1,18 @@
+#mobilelogo {
+	padding: 20px 40px;
+	text-align: center;
+}
+	
+	#mobilelogo img {
+		width: 45px;
+		height: 45px;
+		float: left;
+	}
+	
+	#mobilelogo h5 {
+		display: inline-block;
+		line-height: 45px;
+		height: 45px;
+		float: left;
+		margin-bottom: 0;
+	}
